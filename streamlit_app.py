@@ -35,8 +35,8 @@ with st.sidebar:
         body_mass_g = st.slider("Body mass (g)", 2700.0, 6300.0, 4700.0)
 
         submitted = st.form_submit_button("🔮 Predict species")
-  if submitted:
-    data = {
+if submitted:
+  data = {
         "island": island,
         "bill_length_mm": bill_length_mm,
         "bill_depth_mm": bill_depth_mm,
@@ -45,8 +45,8 @@ with st.sidebar:
         "sex": gender
     }
 
-    input_df = pd.DataFrame(data, index=[0])
-    input_penguins = pd.concat([input_df, X], axis = 0)
+  input_df = pd.DataFrame(data, index=[0])
+  input_penguins = pd.concat([input_df, X], axis = 0)
 
   encode = ["island", "sex"]
   df_penguins = pd.get_dummies(input_penguins, prefix = encode)
