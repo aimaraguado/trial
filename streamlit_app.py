@@ -36,8 +36,7 @@ with st.sidebar:
          "sex": gender}
   input_df = pd.DataFrame(data, index = [0])
   input_penguins = pd.concat([input_df, X], axis = 0)
-input_df
 
-encode = ["island", "sex"]
-df_penguins = pd.get_dummies(input_penguins, prefix = encode)
-df_penguins
+  encode = ["island", "sex"]
+  df_penguins = pd.get_dummies(input_penguins, prefix = encode)
+  input_row = df_penguins[:1]
