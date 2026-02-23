@@ -35,7 +35,7 @@ with st.sidebar:
         body_mass_g = st.slider("Body mass (g)", 2700.0, 6300.0, 4700.0)
 
         dummy_str = st.text_input("Dummy (mm)", "45.0")
-        dummy_ft = float(bill_length_str)
+        dummy_ft = float(dummy_str)
 
         submitted = st.form_submit_button("🔮 Predict species")
 if submitted:
