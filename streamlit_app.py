@@ -57,8 +57,10 @@ with st.expander("Data preparation"):
   st.write("**Encoded output penguin Y**")
   y
 
+X = df_penguins[1:]
 clf = RandomForestClassifier()
-clf.fit(df_penguins,y)
+clf.fit(X,y)
 
 predict = clf.predict(input_row)
 predict_proba = clf.predict_proba(input_row)
+predict_proba
