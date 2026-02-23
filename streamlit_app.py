@@ -40,3 +40,10 @@ with st.sidebar:
   encode = ["island", "sex"]
   df_penguins = pd.get_dummies(input_penguins, prefix = encode)
   input_row = df_penguins[:1]
+
+target_mapper = {"Adelie": 0,
+                 "Chinstrap": 1,
+                 "Gentoo": 2
+                }
+def encode_value(val):
+  return target_mapper[val]
