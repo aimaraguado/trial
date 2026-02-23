@@ -37,3 +37,7 @@ with st.sidebar:
   input_df = pd.DataFrame(data, index = [0])
   input_penguins = pd.concat([input_df, X], axis = 0)
 input_df
+
+encode = ["island", "gender"]
+df_penguins = pd.get_dummies(input_penguins, prefix = encode)
+df_penguins
