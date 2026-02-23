@@ -52,52 +52,52 @@ if submitted:
   df_penguins = pd.get_dummies(input_penguins, prefix = encode)
   input_row = df_penguins[:1]
 
-target_mapper = {"Adelie": 0,
-                 "Chinstrap": 1,
-                 "Gentoo": 2
-                }
-def encode_value(val):
-  return target_mapper[val]
+  target_mapper = {"Adelie": 0,
+                   "Chinstrap": 1,
+                   "Gentoo": 2
+                  }
+  def encode_value(val):
+    return target_mapper[val]
 
-y = Y.apply(encode_value)
-
-with st.expander("Data preparation"):
-  st.write("**Encoded input penguin X**")
-  input_row
-  st.write("**Encoded output penguin Y**")
-  y
-
-X = df_penguins[1:]
-clf = RandomForestClassifier()
-clf.fit(X,y)
-
-predict = clf.predict(input_row)
-predict_proba = clf.predict_proba(input_row)
-st.subheader("Predicted Species")
-st.dataframe(predict_proba,
-            column_config = {
-              "Adelie": st.column_config.ProgressColumn(
-                "Adelie",
-                format="%f",
-                width="medium",
-                min_value=0,
-                max_value=1
-              ),
-              "Chinstrap": st.column_config.ProgressColumn(
-                "Chinstrap",
-                format="%f",
-                width="medium",
-                min_value=0,
-                max_value=1
-              ),
-              "Gentoo": st.column_config.ProgressColumn(
-                "Gentoo",
-                format="%f",
-                width="medium",
-                min_value=0,
-                max_value=1
-              )
-            })
-
-penguins_species = np.array(["Adelie", "Chinstrap", "Gentoo"])
-st.success(penguins_species[predict][0])
+  y = Y.apply(encode_value)
+  
+  with st.expander("Data preparation"):
+    st.write("**Encoded input penguin X**")
+    input_row
+    st.write("**Encoded output penguin Y**")
+    y
+  
+  X = df_penguins[1:]
+  clf = RandomForestClassifier()
+  clf.fit(X,y)
+  
+  predict = clf.predict(input_row)
+  predict_proba = clf.predict_proba(input_row)
+  st.subheader("Predicted Species")
+  st.dataframe(predict_proba,
+              column_config = {
+                "Adelie": st.column_config.ProgressColumn(
+                  "Adelie",
+                  format="%f",
+                  width="medium",
+                  min_value=0,
+                  max_value=1
+                ),
+                "Chinstrap": st.column_config.ProgressColumn(
+                  "Chinstrap",
+                  format="%f",
+                  width="medium",
+                  min_value=0,
+                  max_value=1
+                ),
+                "Gentoo": st.column_config.ProgressColumn(
+                  "Gentoo",
+                  format="%f",
+                  width="medium",
+                  min_value=0,
+                  max_value=1
+                )
+              })
+  
+  penguins_species = np.array(["Adelie", "Chinstrap", "Gentoo"])
+  st.success(penguins_species[predict][0])
