@@ -34,6 +34,8 @@ with st.sidebar:
         flipper_length_mm = st.slider("Flipper length (mm)", 172.0, 231.0, 201.0)
         body_mass_g = st.slider("Body mass (g)", 2700.0, 6300.0, 4700.0)
 
+        dummy = st.number_input("Dummy (mm)", min_value=32.1, max_value=60.0, value=45.0, step=0.1)
+
         submitted = st.form_submit_button("🔮 Predict species")
 if submitted:
   data = {
