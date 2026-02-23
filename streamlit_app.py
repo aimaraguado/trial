@@ -58,7 +58,7 @@ with st.expander("Data preparation"):
   y
 
 clf = RandomForestClassifier()
-clf.fit(X,y)
+clf.fit(df_penguins,y)
 
 predict = clf.predict(input_row)
 predict_proba = clf.predict_proba(input_row)
