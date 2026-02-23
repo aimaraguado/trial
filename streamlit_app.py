@@ -47,3 +47,6 @@ target_mapper = {"Adelie": 0,
                 }
 def encode_value(val):
   return target_mapper[val]
+
+y = Y.apply(encode_value)
+y
